@@ -1,4 +1,4 @@
-###*Let's explore python selenium automation framework*
+###Let's explore python selenium automation framework
 
 Here, we will be discussing regrading the automation framework using Selenium & Python.
 

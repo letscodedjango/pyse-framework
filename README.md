@@ -1,6 +1,6 @@
 ###Let's explore python selenium automation framework
 
-<img src=pythonlogo.jpg style="height:20%">
+<img src=pythonlogo.jpg height="20%">
 
 Here, we will be discussing regrading the automation framework using Selenium & Python.
 

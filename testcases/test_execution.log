@@ -1,0 +1,43 @@
+05-30 17:28 root         DEBUG    Intializing the chrome driver....
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    POST http://127.0.0.1:51188/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "any", "goog:chromeOptions": {"extensions": [], "args": []}}}, "desiredCapabilities": {"browserName": "chrome", "version": "", "platform": "ANY", "goog:chromeOptions": {"extensions": [], "args": []}}}
+05-30 17:28 urllib3.connectionpool DEBUG    Starting new HTTP connection (1): 127.0.0.1:51188
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "POST /session HTTP/1.1" 200 690
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Launcing the amazon website....
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    POST http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/url {"url": "https://www.amazon.in"}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "POST /session/640d74ea0e295217357d2a07e4267f4c/url HTTP/1.1" 200 14
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Maximizing the browser window....
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    POST http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/window/maximize {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "POST /session/640d74ea0e295217357d2a07e4267f4c/window/maximize HTTP/1.1" 200 50
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Taking screenshot before test execution...
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    GET http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/screenshot {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "GET /session/640d74ea0e295217357d2a07e4267f4c/screenshot HTTP/1.1" 200 757332
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Getting the page title...
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    GET http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/title {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "GET /session/640d74ea0e295217357d2a07e4267f4c/title HTTP/1.1" 200 110
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         INFO     Comparing the page title with expected title...
+05-30 17:28 root         INFO     Taking screenshot after test execution...
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    GET http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/screenshot {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "GET /session/640d74ea0e295217357d2a07e4267f4c/screenshot HTTP/1.1" 200 757332
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Taking screenshot before test execution...
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    GET http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/screenshot {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "GET /session/640d74ea0e295217357d2a07e4267f4c/screenshot HTTP/1.1" 200 757332
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         ERROR    Entering the text into serch box....
+05-30 17:28 root         INFO     Taking screenshot after test execution...
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    GET http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/screenshot {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "GET /session/640d74ea0e295217357d2a07e4267f4c/screenshot HTTP/1.1" 200 757332
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Closing the browser window....
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    DELETE http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c/window {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "DELETE /session/640d74ea0e295217357d2a07e4267f4c/window HTTP/1.1" 200 12
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request
+05-30 17:28 root         DEBUG    Quiting the chrome driver....
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    DELETE http://127.0.0.1:51188/session/640d74ea0e295217357d2a07e4267f4c {}
+05-30 17:28 urllib3.connectionpool DEBUG    http://127.0.0.1:51188 "DELETE /session/640d74ea0e295217357d2a07e4267f4c HTTP/1.1" 200 14
+05-30 17:28 selenium.webdriver.remote.remote_connection DEBUG    Finished Request

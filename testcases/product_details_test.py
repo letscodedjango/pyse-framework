@@ -1,3 +1,5 @@
+import random
+
 from selenium import webdriver
 import pytest
 import time
@@ -6,30 +8,39 @@ from pages.productdetailspage import ProductDetails
 from pages.productspage import Products
 
 
+@pytest.mark.usefixtures("OneTimeSetUp")
 class TestProductDetailsPage:
+
+    # @pytest.fixture
+    # def setUp(self):
+    #     self.driver = webdriver.Chrome(
+    #         "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/resources/drivers/chromedriver")
+    #     self.driver.get("https://www.amazon.in")
+    #     self.driver.maximize_window()
+    #     time.sleep(4)
+    #     yield
+    #     time.sleep(3)
+    #     self.driver.close()
+    #     self.driver.quit()
+
     @pytest.fixture
     def setUp(self):
-        self.driver = webdriver.Chrome(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/resources/drivers/chromedriver")
-        self.driver.get("https://www.amazon.in")
-        self.driver.maximize_window()
-        time.sleep(4)
+        self.driver.save_screenshot(
+            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" +
+            str(random.random() * 10000).split('.')[0] + ".png")
         yield
-        time.sleep(3)
-        self.driver.close()
-        self.driver.quit()
+        self.driver.save_screenshot(
+            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" +
+            str(random.random() * 10000).split('.')[0] + ".png")
 
     def test_product_title(self, setUp):
-        self.driver.save_screenshot(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "homepage.png")
+        # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "homepage.png")
         home_object = Home(self.driver)
         home_object.enterTextIntoSearchBox("Macbook pro")
-        self.driver.save_screenshot(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "afterenteringproduct.png")
+        # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "afterenteringproduct.png")
         home_object.clickSearchIcon()
         time.sleep(5)
-        self.driver.save_screenshot(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "productlisting.png")
+        # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "productlisting.png")
 
         parent_window = self.driver.current_window_handle
         print(parent_window)
@@ -45,22 +56,19 @@ class TestProductDetailsPage:
             if (window != parent_window):
                 self.driver.switch_to.window(window)
                 self.driver.save_screenshot(
-                    "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "childtab.png")
+                    "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + str(random.random() * 10000).split('.')[0]+".png")
 
         product_detail_object = ProductDetails(self.driver)
         assert product_detail_object.getProductTitle() == "Macbook pro"
 
     def test_product_price(self, setUp):
-        self.driver.save_screenshot(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "homepage.png")
+        # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "homepage.png")
         home_object = Home(self.driver)
         home_object.enterTextIntoSearchBox("Macbook pro")
-        self.driver.save_screenshot(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "afterenteringproduct.png")
+        # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "afterenteringproduct.png")
         home_object.clickSearchIcon()
         time.sleep(5)
-        self.driver.save_screenshot(
-            "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "productlisting.png")
+        # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "productlisting.png")
 
         parent_window = self.driver.current_window_handle
         print(parent_window)
@@ -76,7 +84,7 @@ class TestProductDetailsPage:
             if (window != parent_window):
                 self.driver.switch_to.window(window)
                 self.driver.save_screenshot(
-                    "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "childtab.png")
+                    "/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + str(random.random() * 10000).split('.')[0]+ ".png")
 
         product_detail_object = ProductDetails(self.driver)
         product_price = product_detail_object.getProductPrice()

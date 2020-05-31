@@ -4,6 +4,11 @@ import datetime
 from selenium import webdriver
 import pytest
 import time
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.homepage import Home
 from pages.productspage import Products
 import logging
@@ -28,7 +33,7 @@ class TestProductDetailsPage:
     console = logging.StreamHandler()
     console.setLevel(logging.INFO)
     # set a format which is simpler for console use
-    formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+    formatter = logging.Formatter('%(asctime)s %(name)-12s: %(levelname)-8s %(message)s')
     # tell the handler to use this format
     console.setFormatter(formatter)
     # add the handler to the root logger
@@ -62,7 +67,7 @@ class TestProductDetailsPage:
         # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "homepage.png")
         # pageTitle = self.driver.title
         home_object = Home(self.driver)
-        logging.debug("Getting the page title...")
+        logging.info("Getting the page title...")
         pageTitle = home_object.getPageTitle()
         logging.info("Comparing the page title with expected title...")
         assert pageTitle == "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in"
@@ -71,16 +76,16 @@ class TestProductDetailsPage:
         # search_box = self.driver.find_element_by_id("twotabsearchtextbox")
         # search_box.send_keys("Macbook pro")
         home_object = Home(self.driver)
-        logging.error("Entering the text into serch box....")
-        home_object.enterTextIntoSearchBox()
+        logging.info("Entering the text into serch box....")
+        home_object.enterTextIntoSearchBox("Macbook Pro")
         # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "afterenteringproduct.png")
         # search_icon = self.driver.find_element_by_xpath("//input[@type='submit']")
         # search_icon.click()
         logging.debug("Clicking on serch icon....")
         home_object.clickSearchIcon()
-        time.sleep(5)
         # self.driver.save_screenshot("/Users/gaurnitai/Desktop/Programming/Python/PySeFramework/screenshots/" + "productlisting.png")
         # searched_product = self.driver.find_element_by_xpath("(//a[@class='a-link-normal a-text-normal'])[1]")
+
         product_page = Products(self.driver)
         logging.info("Checking the searched product ...")
         assert product_page.isProductDisplayed() == True

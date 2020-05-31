@@ -3,6 +3,7 @@ import time
 import pytest
 import logging
 
+
 @pytest.fixture(scope="class")
 def OneTimeSetUp(request):
     logging.debug("Intializing the chrome driver....")
@@ -12,10 +13,11 @@ def OneTimeSetUp(request):
     driver.get("https://www.amazon.in")
     logging.debug("Maximizing the browser window....")
     driver.maximize_window()
-    time.sleep(4)
+    driver.implicitly_wait(10)  # Applying implicit wait
+    # time.sleep(4)
     request.cls.driver = driver
     yield driver
-    time.sleep(3)
+    # time.sleep(3)
     logging.debug("Closing the browser window....")
     driver.close()
     logging.debug("Quiting the chrome driver....")
